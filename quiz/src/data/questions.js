@@ -27,7 +27,7 @@ const data = [
   {
     question:
       "Por onde a Aghata Nunes for vai ter o que?",
-    options: ["Ninhuem", "Aghaters", "Dinheiro", "Flop mores"],
+    options: ["Ninguem", "Aghaters", "Dinheiro", "Flop mores"],
     answer: "Aghaters",
   },
 ];
