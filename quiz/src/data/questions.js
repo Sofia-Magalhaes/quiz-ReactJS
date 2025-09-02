@@ -1,11 +1,11 @@
 const data = [
   {
-    question: "Quem é Imola?",
+    question: "Existe uma pessoa famosa que também é conhecida por outro noome. Quem é Imola?",
     options: [
       "Jade Picon",
       "Saori Kido",
       "Andressa Urach",
-      "Cupcake",
+      "Juliette",
     ],
     answer: "Andressa Urach",
   },

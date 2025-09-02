@@ -10,6 +10,7 @@
 
 .option:hover{
     opacity: 1;
+    background-color: #320b5f;
 }
 
 #opitons-container .option p{
