@@ -21,8 +21,23 @@ const quizReducer = (state, action) => {
                 gameStage: STAGES[1],
             };
 
+        case "START_GAME":
+            let quizQuestions = null
+
+            state.questions.forEach((question) => {
+                if (question.category === action.payload) {
+                    quizQuestions = question.questions
+                }
+            })
+
+            return{
+                ...state,
+                questions: quizQuestions,
+                gameStage: STAGES[2]
+            }
+
         case "REORDER_QUESTIONS":
-            const reorderQuestions = questions.sort(() => {
+            const reorderQuestions = state.questions.sort(() => {
                 return Math.random() - 0.5;
             })
             return {
@@ -41,7 +56,7 @@ const quizReducer = (state, action) => {
             return {
                 ...state,
                 currentQuestion: nextQuestion,
-                gameStage: endGame ? STAGES[2] : state.gameStage,
+                gameStage: endGame ? STAGES[3] : state.gameStage,
                 answerSelected: false
             }
 
@@ -49,7 +64,7 @@ const quizReducer = (state, action) => {
             return initialState
 
         case "CHECK_ANSWER":
-            if(state.answerSelected) return state //prevenindo bug de resposta a mais
+            if (state.answerSelected) return state //prevenindo bug de resposta a mais
 
             const answer = action.payload.answer
             const option = action.payload.option
@@ -57,7 +72,7 @@ const quizReducer = (state, action) => {
 
             if (answer === option) correctAnswer = 1;
 
-            return{
+            return {
                 ...state,
                 score: state.score + correctAnswer,
                 answerSelected: option,
