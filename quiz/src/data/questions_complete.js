@@ -9,7 +9,7 @@ const data = [
         tip: "Ela faz de tudo",
       },
       {
-        question: "Continue essa frase: Passa uma aguinha...",
+        question: "Continue essa frase: Vou passar uma aguinha...",
         options: ["vai que passou uma baratinha", "para limpar tudo", "vai que está sujo", "para ficar limpinho"],
         answer: "vai que passou uma baratinha",
         tip: "as pessoas tem nojo",
@@ -27,7 +27,7 @@ const data = [
       {
         question: "Por onde a Aghata Nunes for vai ter o que?",
         options: ["Ninhuem", "Aghaters", "Dinheiro", "Flop mores"],
-        answer: "length",
+        answer: "Aghaters",
       },
     ],
   },
