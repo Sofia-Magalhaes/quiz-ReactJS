@@ -9,7 +9,8 @@ const initialState = {
     currentQuestion: 0,
     score: 0,
     answerSelected: false,
-    help: false
+    help: false,
+    optionToHide: null
 }
 //estado do jogo e ação que pode modificar o estado do jogo
 const quizReducer = (state, action) => {
@@ -31,7 +32,7 @@ const quizReducer = (state, action) => {
                 }
             })
 
-            return{
+            return {
                 ...state,
                 questions: quizQuestions,
                 gameStage: STAGES[2]
@@ -80,10 +81,29 @@ const quizReducer = (state, action) => {
                 answerSelected: option,
             }
 
-        case "SHOW_TIP": 
+        case "SHOW_TIP":
             return {
-                ...state, 
+                ...state,
                 help: "tip"
+            }
+
+        case "REMOVE_OPTION":
+            const questionWithoutOption = state.questions[state.currentQuestion]
+
+            let repeat = true
+            let optionToHide
+
+            questionWithoutOption.options.forEach((option) => {
+                if (option !== questionWithoutOption.answer && repeat) {
+                    optionToHide = option
+                    repeat = false
+                }
+            })
+
+            return {
+                ...state,
+                optionToHide,
+                help: true,
             }
 
         default:
